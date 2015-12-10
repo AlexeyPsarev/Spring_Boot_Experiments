@@ -11,24 +11,15 @@ import javax.persistence.Table;
 @Table(name = "users")
 public class User
 {
-	@Id
-	@Column(name = "id")
-    private Integer id;
-	
-	@Column(name = "name")
-	private String name;
-	
-	@Column(name = "surname")
-	private String surname;
-	
-	public User()
+	public User() 
 	{
 	}
-	
-	public User(String name, String surname)
+
+	public User(String username, String password, String fullname)
 	{
-		this.name = name;
-		this.surname = surname;
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
 	}
 	
 	public Integer getId()
@@ -36,28 +27,52 @@ public class User
 		return id;
 	}
 	
-	public String getName()
+	public String getUsername()
 	{
-		return name;
+		return username;
 	}
 	
-	public String getSurname()
+	public String getPassword()
 	{
-		return surname;
+		return password;
 	}
 	
-	public void setId(Integer value)
+	public String getFullname()
 	{
-		id = value;
+		return fullname;
 	}
 	
-	public void setName(String str)
+	public void setId(Integer id)
 	{
-		name = str;
+		this.id = id;
 	}
 	
-	public void setSurname(String str)
+	public void setUsername(String value)
 	{
-		surname = str;
+		username = value;
 	}
+	
+	public void setPassword(String value)
+	{
+		password = value;
+	}
+	
+	public void setFullname(String value)
+	{
+		fullname = value;
+	}
+	
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+	
+	@Column(name = "username")
+	private String username;
+	
+	@Column(name = "password", columnDefinition = "char(40)")
+	private String password;
+	
+	@Column(name = "full_name")
+	private String fullname;
 }
