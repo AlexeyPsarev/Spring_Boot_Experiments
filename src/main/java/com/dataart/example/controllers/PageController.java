@@ -14,7 +14,7 @@ public class PageController
 	private UserService service;
 	
 	@RequestMapping("/")
-	String info(ModelMap model)
+	public String info(ModelMap model)
 	{
 		User user = service.find();
 		model.put("user", user);
@@ -22,15 +22,21 @@ public class PageController
 	}
 	
 	@RequestMapping("/create")
-	String create()
+	public String create()
 	{
 		User user = new User("User1", "pass", "Ivan Ivanov");
 		service.save(user);
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/picture.htm")
+	public String picture()
+	{
+		return "picture";
+	}
+	
 	@RequestMapping("/welcome")
-	String welcome()
+	public String welcome()
 	{
 		return "welcome";
 	}
