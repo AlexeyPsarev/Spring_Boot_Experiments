@@ -6,6 +6,6 @@
         <title>Picture</title>
     </head>
     <body>
-		<img src="/images?name=pic.png" />
+		<img src="/images?name=pic.jpg" />
     </body>
 </html>
